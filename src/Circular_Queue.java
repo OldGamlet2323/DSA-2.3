@@ -13,9 +13,9 @@ public class Circular_Queue {
             rear = new_Node;
             front = rear;
         } else {
-            rear.next = new_Node;
+            rear.setNext(new_Node);
             rear = new_Node;
-            rear.next = front;
+            rear.setNext(front);
         }
     }
 
@@ -24,9 +24,9 @@ public class Circular_Queue {
             System.err.println("Empty Queue!!");
             return -1;
         } else {
-            int poppedElement = front.data;
-            front = front.next;
-            rear.next = front;
+            int poppedElement = front.getData();
+            front = front.getNext();
+            rear.setNext(front);
             return poppedElement;
         }
     }
@@ -36,7 +36,7 @@ public class Circular_Queue {
         if(front == null) {
             System.err.println("Queue is empty!!");
         } else {
-            element = front.data;
+            element = front.getData();
             return element;
         }
         return element;
@@ -47,10 +47,10 @@ public class Circular_Queue {
             System.err.println("Queue is Empty!!");
         } else {
             while(front != rear) {
-                System.out.print(front.data + " ");
-                front = front.next;
+                System.out.print(front.getData() + " ");
+                front = front.getNext();
             }
-            System.out.println(rear.data);
+            System.out.println(rear.getData());
         }
     }
 }
